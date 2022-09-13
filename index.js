@@ -12,6 +12,7 @@ const stripeRoute=require('./routes/stripe')
 const cors=require("cors");
 dotenv.config();
 app.use(express.json());
+const path=require('path');
 
 mongoose.connect(process.env.MONGO_URL).then(()=>console.log("Connected to MongoDB")).catch((err)=>{console.log(err);});
 app.use(cors())
