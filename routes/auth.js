@@ -44,7 +44,7 @@ router.post('/login',async(req,res)=>{
             },process.env.JWT_SEC,
             {expiresIn:"3d"}
             )
-        
+         
 
         res.status(200).json({...other,accessToken});
 
