@@ -50,16 +50,18 @@ const TopButton = styled.button`
 `;
 const TopTexts = styled.div`
   text-decoration: none;
+  display: flex;
+  margin-left: 30px;
+  align-items: center;
+  justify-content: space-between;
+
 `;
 const TopText = styled.span`
   margin-right:30px;
   cursor: pointer;
   color: black;
   text-decoration:none;
-  ${mobile({
-  display:'none'
-
-  })} 
+ 
 
 `;
 
@@ -207,7 +209,7 @@ const Cart = () => {
        
     
       })
-       console.log(res);
+    
       toast("Cart Fetched");
     
       setProducts(res.data.product);
@@ -334,10 +336,13 @@ const handleContinueShopping=()=>{
                   onApprove={function (data, actions) {
                       return actions.order.capture().then(function (details) {
                         const shipping = details.purchase_units[0].shipping;
-                         console.log(shipping);
+                       
                         navigate("/success", { 
                            state:{ stripeData:shipping,
-                            products: cart,}
+                            products: cart,
+                            cartId:cartId
+                          
+                          }
 
                          });
                       });
@@ -360,13 +365,11 @@ const handleContinueShopping=()=>{
         <Wrapper>
           <Title>Your Bag</Title>
           <Top>
-           <TopButton
+           <TopButton  type='filled' 
            onClick={handleContinueShopping}
            >Continue Shopping</TopButton>
-           <TopTexts>
-             <TopText>Shopping Bag({cart.quantity})   </TopText>
-            <Link to="/orders"><TopText>Your OrderList</TopText> </Link>            
-           </TopTexts>
+         
+            <Link to="/orders">  <TopButton>Your Orders</TopButton> </Link>
           
            <TopButton type='filled' onClick={handleClearCart} >Clear Cart</TopButton>
     
@@ -390,9 +393,9 @@ const handleContinueShopping=()=>{
 
                 <PriceDetail>
                   <ProductAmountContainer>
-                    <Add />
+                   Qty:
                     <ProductAmount>{item.quantity}</ProductAmount>
-                    <Remove />
+                    
                   </ProductAmountContainer>
                   <ProductPrice>
                   {numberFormat(item.productPrice)}

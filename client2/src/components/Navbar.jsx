@@ -75,6 +75,7 @@ ${mobile({
 `
 const Logo = styled.h1`
     font-weight: 500;
+    cursor: pointer;
     ${mobile({
         fontSize: '20px',
         marginLeft:"35px"
@@ -149,9 +150,14 @@ const Navbar = () => {
 
    }
 
+   const handleContinueShopping=()=>{
+    navigate('/');
+  
+  
+  }
+
   const quantity= useSelector(state => state.cart.quantity)
   const user= useSelector(state=> state.user.currentUser)
-  console.log(quantity);
   return (
   <Container>
      <Wrapper>
@@ -167,7 +173,7 @@ const Navbar = () => {
         </Left>
 
 
-        <Center><Logo>Dukan.</Logo></Center>
+        <Center><Logo onClick={handleContinueShopping}>Dukan.</Logo></Center>
         <Right>
 {!user && <NavLink to='/register'><MenuItem><Button>Register</Button></MenuItem></NavLink>}
 

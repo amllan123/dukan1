@@ -13,11 +13,36 @@ const Success = () => {
   const location=useLocation();
   const data=location.state.stripeData
  const cart= location.state.products
+ const cartId=location.state.cartId
   const currentUser = useSelector((state) => state.user.currentUser);
   const [orderId, setOrderId] = useState(null);
   const URL=process.env.REACT_APP_API_KEY
   const dispatch=useDispatch();
-  console.log(currentUser.accessToken);
+
+  const handleClearCart=async ()=>{
+  
+    try {
+  
+      await axios.put(`${URL}/api/carts/${currentUser._id}/${cartId}`,{
+       product:[]
+  
+      },{
+        headers:{
+          'Content-Type': 'application/json',
+          token:'Bearer '+currentUser.accessToken
+    
+         }
+      })
+      dispatch(reset())
+
+        
+    } catch (error) {
+    
+    }
+  
+  
+  
+   }
 
   
   useEffect(() => {
@@ -52,6 +77,10 @@ const Success = () => {
 
 
          })
+
+         handleClearCart();
+
+
 
          
 

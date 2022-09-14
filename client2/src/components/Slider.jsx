@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { ArrowLeftOutlined, ArrowRightOutlined, Key } from '@mui/icons-material'
 import { sliderItems } from '../data'
 import {mobile} from '../responsive'
+import { NavLink } from 'react-router-dom'
 
 const Container = styled.div`
  width: 100%;
@@ -118,7 +119,7 @@ const handleClick= (direction)=>{
              </ImgContainer><InfoContainer>
                  <Title>{item.title}</Title>
                  <Desc>{item.desc}</Desc>
-                 <Button>Shop Now</Button>
+                 <NavLink to={`/products/${item.cat}`}>  <Button>Shop Now</Button>  </NavLink>
                </InfoContainer>
           </Slide></div>
 

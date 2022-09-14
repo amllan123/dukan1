@@ -26,7 +26,7 @@ import { NavLink } from 'react-router-dom'
   const Image = styled.img`
    height: 75%;
   z-index: 2;
-  max-width: 200px;
+  min-width: 200px;
   `
   const Info=styled.div`
   opacity: 0;

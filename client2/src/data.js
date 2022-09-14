@@ -4,14 +4,16 @@ export const sliderItems =[
     img:"https://images.pexels.com/photos/1021693/pexels-photo-1021693.jpeg?auto=compress&cs=tinysrgb&w=600",
     title:"Autumn Sale",
     desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum",
-    bg:"f3c54d"
+    bg:"f3c54d",
+    cat:"autmnsale"
  },
  {
     id:2,
     img:"https://images.pexels.com/photos/8557408/pexels-photo-8557408.jpeg?auto=compress&cs=tinysrgb&w=600",
     title:"Movember Sale",
     desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum",
-    bg:"f3c54d"
+    bg:"f3c54d",
+    cat:"movembersale"
  },
 
 
@@ -21,7 +23,8 @@ export const sliderItems =[
     img:" https://images.pexels.com/photos/13364874/pexels-photo-13364874.jpeg?auto=compress&cs=tinysrgb&w=600",
     title:"Wedding Season Sale",
     desc:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum",
-    bg:"f3c54d"
+    bg:"f3c54d",
+    cat:"weddingsale"
  }
 
 ]
