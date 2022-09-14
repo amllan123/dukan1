@@ -1,7 +1,8 @@
 import { Send } from '@mui/icons-material'
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import {mobile} from '../responsive'
+import { toast } from 'react-hot-toast'
 
 
 const Conatiner = styled.div`
@@ -62,13 +63,23 @@ color: white;
  
 `
 const Newsletter = () => {
+  const[mail,setmail]=useState("");
+
+  const handleClick=()=>{
+  
+  setmail("");
+  toast("Yeah you are Subscribe to our newsletter",{
+   icon:'🥳'
+
+  })
+  }
   return (
    <Conatiner>
      <Title>NewsLetter</Title>
      <Description>Get timely upadtes from your favourite brands</Description>
      <InputConatiner>
-         <Input placeholder='Your E-mail' />
-         <Button>
+         <Input placeholder='Your E-mail' onChange={(e)=>setmail(e.target.value)}  />
+         <Button onClick={handleClick}>
             <Send/>
          </Button>
        

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom' 
+import { useLocation,Link } from 'react-router-dom' 
 import { useState } from 'react';
 import { useSelector ,useDispatch} from 'react-redux'; 
 import Navbar from '../components/Navbar';
@@ -8,6 +8,7 @@ import Newsletter from '../components/Newsletter';
 import { useEffect } from 'react';
 import { reset } from '../redux/cartRedux';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const Success = () => {
   const location=useLocation();
@@ -77,7 +78,7 @@ const Success = () => {
 
 
          })
-
+          toast.success("Ordered Successfully")
          handleClearCart();
 
 
@@ -102,10 +103,12 @@ const Success = () => {
         justifyContent: "center",
       }}
     >
-      {orderId
-        ? `Order has been created successfully. Your order number is ${orderId}`
-        : `Successfull. Your order is being prepared...`}
-      <button style={{ padding: 10, marginTop: 20 }}>Go to Homepage</button>
+      
+      <h3>Order has been created successfully</h3>
+        
+        <Link to='/'>  <button style={{ padding: 10, marginTop: 20 }}>Go to Homepage</button></Link>
+        <Link to='/orders'>  <button style={{ padding: 10, marginTop: 20 }}>Go to OrderList</button></Link>
+    
     </div>
 
    <Newsletter/>

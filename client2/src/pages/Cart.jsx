@@ -185,7 +185,7 @@ const Cart = () => {
   const currentUser = useSelector((state) => state.user.currentUser);
   const navigate = useNavigate();
   const converter = new Converter();
-  const [m,setM]=useState(0);
+  const [m,setM]=useState(1);
   const [products,setProducts]=useState([]);
   const [cartId,setCartId]=useState();
   let convertwdMoney=0;
@@ -281,10 +281,11 @@ const handleContinueShopping=()=>{
 
 }
   
+
   
 
   // PAYPAL INTEGRATION
-  const amount = "1";
+  const amount =Math.round(m);
   const currency = "USD";
   const style = {"layout":"vertical",
   "color":"white",
@@ -428,7 +429,7 @@ const handleContinueShopping=()=>{
             </SummaryItem>
             <SummaryItem type="total">
               <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice>{numberFormat(cart.total)}</SummaryItemPrice>
+              <SummaryItemPrice>{numberFormat(cart.total)} / ${Math.round(m)}</SummaryItemPrice>
        
 
             </SummaryItem>
